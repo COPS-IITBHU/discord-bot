@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "public",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "typeRoots": ["api"],
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "skipLibCheck": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "api"
+  ],
+  "exclude": ["public"]
+}

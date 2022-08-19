@@ -1,16 +1,15 @@
 import {
-  InteractionType,
-  verifyKey,
-  InteractionResponseType,
+  InteractionResponseType, InteractionType,
+  verifyKey
 } from "discord-interactions";
 
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import axios from "axios";
 import { Interaction } from "./global";
 
 const publicKey = process.env.publickey || "";
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: VercelRequest, res: VercelResponse) => {
   const signature = (req.headers["x-signature-ed25519"] || " ") as string;
   const timestamp = (req.headers["x-signature-timestamp"] || " ") as string;
 
@@ -27,7 +26,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   const interaction = req.body as Interaction;
   if (
     interaction &&
-    interaction.type === InteractionType.COMMAND &&
+    interaction.type === InteractionType.APPLICATION_COMMAND &&
     interaction.data?.name === "devtalks"
   ) {
     const { data } = await axios.get(

@@ -1,5 +1,5 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
-module.exports = (req: NowRequest, res: NowResponse) => {
+module.exports = (req: VercelRequest, res: VercelResponse) => {
   return res.json({ message: "Callisto Here!" });
 };
